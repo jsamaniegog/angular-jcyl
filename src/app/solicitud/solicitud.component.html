@@ -15,6 +15,14 @@
     <h1>Solicitud del comedor</h1>
     <h2>Nueva solicitud</h2>
 
+    <!-- Mensajes de validación -->
+    <p *ngIf="!validarNombreYApellidos()" class="help is-danger">
+      El nombre y los apellidos son obligatorios.
+    </p>
+    <p *ngIf="validarNombreYApellidos()" class="help is-success">
+      ¡Todo listo!, ya puedes pulsar en «Enviar».
+    </p>
+
     <div class="field">
       <label class="label">Nombre</label>
       <div class="control">
