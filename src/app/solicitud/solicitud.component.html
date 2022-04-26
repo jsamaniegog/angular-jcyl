@@ -11,7 +11,8 @@
 -->
 
 <div class="content columns">
-  <div class="is-three-fifths box">
+  <!-- Primera columna - Solicitud -->
+  <div class="is-half box">
     <h1>Solicitud del comedor</h1>
     <h2>Nueva solicitud</h2>
 
@@ -53,9 +54,27 @@
       <button class="button is-primary" (click)="enviar()">Enviar</button>
     </div>
 
-    <div>
-      {{ solicitud.nombre }} {{ solicitud.apellidos }}
-    </div>
+    <div>{{ solicitud.nombre }} {{ solicitud.apellidos }}</div>
+  </div>
+
+  <!-- Segunda columna (espacio de separación) -->
+  <div class="column"></div>
+
+  <!-- Tercera columna - Listado -->
+  <div class="is-half box">
+    Listado de Solicitudes
+    <table>
+      <tr *ngFor="let solicitud of solicitudes; let i = index">
+        <td>
+          <strong>#{{ i }}</strong>
+        </td>
+        <td>
+          {{ solicitud.nombre }}
+        </td>
+        <td>
+          {{ solicitud.apellidos }}
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
-

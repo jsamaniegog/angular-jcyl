@@ -11,10 +11,10 @@ export class SolicitudComponent implements OnInit {
     apellidos: '',
   };
 
+  solicitudes: any[];
+
   constructor() {
-    // setInterval(() => {
-    //   this.solicitud.nombre = '' + Math.random();
-    // }, 2000);
+    this.solicitudes = []
   }
 
   ngOnInit(): void {}
@@ -26,6 +26,8 @@ export class SolicitudComponent implements OnInit {
     }
 
     alert('Enviado: ' + this.solicitud.nombre + ' ' + this.solicitud.apellidos);
+
+    this.solicitudes.push({...this.solicitud});
   }
 
   nombre($event: KeyboardEvent) {
