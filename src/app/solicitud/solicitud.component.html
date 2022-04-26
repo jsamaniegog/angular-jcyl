@@ -1,2 +1,12 @@
 {{ solicitud.nombre }}
-<p [ngStyle]="{color: +solicitud.nombre > 0.5 ? 'red' : 'blue', 'font-weight': +solicitud.nombre > 0.5 ? 'bold' : 'normal'}">solicitud works!</p>
+
+<p
+  [ngStyle]="{
+    color: +solicitud.nombre > 0.5 ? 'red' : 'blue',
+    'font-weight': +solicitud.nombre > 0.5 ? 'bold' : 'normal'
+  }"
+>
+  solicitud works!
+</p>
+
+<button class="button is-primary" (click)="enviar()">Enviar</button>
