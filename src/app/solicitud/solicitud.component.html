@@ -1,4 +1,4 @@
-{{ solicitud.nombre }}
+<!-- {{ solicitud.nombre }}
 
 <p
   [ngStyle]="{
@@ -8,5 +8,46 @@
 >
   solicitud works!
 </p>
+-->
 
-<button class="button is-primary" (click)="enviar()">Enviar</button>
+<div class="content columns">
+  <div class="is-three-fifths box">
+    <h1>Solicitud del comedor</h1>
+    <h2>Nueva solicitud</h2>
+
+    <div class="field">
+      <label class="label">Nombre</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Introduce tu nombre aquí"
+          (keyup)="nombre($event)"
+        />
+      </div>
+      <p class="help">Los nombres comienzan con letra mayúscula.</p>
+    </div>
+
+    <div class="field">
+      <label class="label">Apellidos</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Introduce tus apellidos aquí"
+          (keyup)="apellidos($event)"
+        />
+      </div>
+      <p class="help">Los apellidos también comienzan con letra mayúscula.</p>
+    </div>
+
+    <div class="buttons">
+      <button class="button is-primary" (click)="enviar()">Enviar</button>
+    </div>
+
+    <div>
+      {{ solicitud.nombre }} {{ solicitud.apellidos }}
+    </div>
+  </div>
+</div>
+
