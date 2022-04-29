@@ -1,0 +1,17 @@
+<div class="field">
+  <label for="filtroCentro" class="label">Centro</label>
+  <div class="control">
+    <input id="filtroCentro" class="input" (keyup)="centro($event)" [value]="centroSeleccionado?.nombre" placeholder="Selecciona un centro" />
+    <ul class="ul">
+      <li
+        *ngFor="let centro of this.centrosFiltrados"
+        (click)="seleccionarCentro(centro)"
+        class="p-2"
+        [ngClass]="centroSeleccionado?.nombre === centro.nombre ? 'has-text-white has-background-warning-dark' : 'has-text-grey has-background-warning-light'"
+        style="cursor: pointer;"
+      >
+        {{ centro.nombre }}
+      </li>
+    </ul>
+  </div>
+</div>

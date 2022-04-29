@@ -1,4 +1,6 @@
-<app-centro [centro]="{nombre: 'Centro 1', descripcion: 'Primer Centro.'}"></app-centro>
+<!-- <app-centro
+  [centro]="{ nombre: 'Centro 1', descripcion: 'Primer Centro.' }"
+></app-centro> -->
 
 <div class="content columns">
   <!-- Primera columna - Solicitud -->
@@ -7,10 +9,10 @@
     <h2>Nueva solicitud</h2>
 
     <!-- Mensajes de validación -->
-    <p *ngIf="!validarNombreYApellidos()" class="help is-danger">
-      El nombre y los apellidos son obligatorios.
+    <p *ngIf="!validarFormulario()" class="help is-danger">
+      Todos los campos son obligatorios.
     </p>
-    <p *ngIf="validarNombreYApellidos()" class="help is-success">
+    <p *ngIf="validarFormulario()" class="help is-success">
       ¡Todo listo!, ya puedes pulsar en «Enviar».
     </p>
 
@@ -40,7 +42,11 @@
       <p class="help">Los apellidos también comienzan con letra mayúscula.</p>
     </div>
 
-    <div class="buttons">
+    <app-selector-centro
+      (selected)="solicitud.centro = $event.nombre"
+    ></app-selector-centro>
+
+    <div class="buttons mt-3 mb-0">
       <button class="button is-primary" (click)="enviar()">Enviar</button>
     </div>
 
@@ -54,17 +60,28 @@
   <div class="is-half box">
     Listado de Solicitudes
     <table>
-      <tr *ngFor="let solicitud of solicitudes; let i = index">
-        <td>
-          <strong>#{{ i }}</strong>
-        </td>
-        <td>
-          {{ solicitud.nombre }}
-        </td>
-        <td>
-          {{ solicitud.apellidos }}
-        </td>
-      </tr>
+      <thead>
+        <th>Número de solicitud</th>
+        <th>Centro</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of solicitudes; let i = index">
+          <td>
+            <strong>#{{ i }}</strong>
+          </td>
+          <td>
+            {{ solicitud.centro }}
+          </td>
+          <td>
+            {{ solicitud.nombre }}
+          </td>
+          <td>
+            {{ solicitud.apellidos }}
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

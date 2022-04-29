@@ -9,9 +9,10 @@ export class SolicitudComponent implements OnInit {
   solicitud = {
     nombre: '',
     apellidos: '',
+    centro: '',
   };
 
-  solicitudes: any[];
+  solicitudes: any;
 
   constructor() {
     this.solicitudes = []
@@ -20,12 +21,16 @@ export class SolicitudComponent implements OnInit {
   ngOnInit(): void {}
 
   enviar() {
-    if (!this.validarNombreYApellidos()) {
+    if (!this.validarFormulario()) {
       alert('Tienes que indicar tu nombre y apellidos.');
       return;
     }
+    if (!this.validarCentro()) {
+      alert('Tienes que indicar un centro.');
+      return;
+    }
 
-    alert('Enviado: ' + this.solicitud.nombre + ' ' + this.solicitud.apellidos);
+    alert('Enviada solicitud de «' + this.solicitud.nombre + ' ' + this.solicitud.apellidos + '» para el centro ' + this.solicitud.centro);
 
     this.solicitudes.push({...this.solicitud});
   }
@@ -40,7 +45,11 @@ export class SolicitudComponent implements OnInit {
     this.solicitud.apellidos = element.value;
   }
 
-  validarNombreYApellidos() {
-    return this.solicitud.nombre.length && this.solicitud.apellidos.length;
+  validarFormulario() {
+    return this.solicitud.nombre.length && this.solicitud.apellidos.length && this.solicitud.centro.length;
+  }
+
+  validarCentro() {
+    return this.solicitud.centro !== ''
   }
 }
