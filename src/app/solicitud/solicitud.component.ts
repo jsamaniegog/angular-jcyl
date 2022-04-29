@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
   solicitud = {
+    fecha: new Date(),
     nombre: '',
     apellidos: '',
     centro: '',

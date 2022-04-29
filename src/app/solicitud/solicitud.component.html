@@ -17,6 +17,11 @@
     </p>
 
     <div class="field">
+      <label class="label">Fecha de la solicitud</label>
+      {{ solicitud.fecha | date: 'dd/MM/yyyy' }}
+    </div>
+
+    <div class="field">
       <label class="label">Nombre</label>
       <div class="control">
         <input
@@ -49,8 +54,6 @@
     <div class="buttons mt-3 mb-0">
       <button class="button is-primary" (click)="enviar()">Enviar</button>
     </div>
-
-    <div>{{ solicitud.nombre }} {{ solicitud.apellidos }}</div>
   </div>
 
   <!-- Segunda columna (espacio de separación) -->
@@ -62,6 +65,7 @@
     <table>
       <thead>
         <th>Número de solicitud</th>
+        <th>Fecha</th>
         <th>Centro</th>
         <th>Nombre</th>
         <th>Apellidos</th>
@@ -70,6 +74,9 @@
         <tr *ngFor="let solicitud of solicitudes; let i = index">
           <td>
             <strong>#{{ i }}</strong>
+          </td>
+          <td>
+            {{ solicitud.fecha | date: 'dd/MM/yyyy' }}
           </td>
           <td>
             {{ solicitud.centro }}
