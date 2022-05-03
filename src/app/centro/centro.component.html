@@ -1,1 +1,8 @@
-<p>centro works!</p>
+<div
+  (click)="centroSeleccionado(centro)"
+  class="p-2"
+  [ngClass]="isSelected ? 'has-text-white has-background-warning-dark' : 'has-text-grey has-background-warning-light'"
+  style="cursor: pointer;"
+>
+  {{ centro?.nombre }}
+</div>

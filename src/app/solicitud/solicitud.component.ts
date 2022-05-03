@@ -16,7 +16,7 @@ export class SolicitudComponent implements OnInit {
   solicitudes: any;
 
   constructor() {
-    this.solicitudes = []
+    this.solicitudes = [];
   }
 
   ngOnInit(): void {}
@@ -31,9 +31,7 @@ export class SolicitudComponent implements OnInit {
       return;
     }
 
-    alert('Enviada solicitud de «' + this.solicitud.nombre + ' ' + this.solicitud.apellidos + '» para el centro ' + this.solicitud.centro);
-
-    this.solicitudes.push({...this.solicitud});
+    this.solicitudes.push({ ...this.solicitud });
   }
 
   nombre($event: KeyboardEvent) {
@@ -47,10 +45,20 @@ export class SolicitudComponent implements OnInit {
   }
 
   validarFormulario() {
-    return this.solicitud.nombre.length && this.solicitud.apellidos.length && this.solicitud.centro.length;
+    return (
+      this.solicitud.nombre.length &&
+      this.solicitud.apellidos.length &&
+      this.solicitud.centro.length
+    );
   }
 
   validarCentro() {
-    return this.solicitud.centro !== ''
+    return this.solicitud.centro !== '';
+  }
+
+  borrarSolicitud(indexToRemove: number) {
+    this.solicitudes = this.solicitudes.filter(function (value: any, index: number, arr: any) {
+      return index !== indexToRemove;
+    });
   }
 }

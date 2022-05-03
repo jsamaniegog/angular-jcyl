@@ -62,33 +62,6 @@
   <!-- Tercera columna - Listado -->
   <div class="is-half box">
     Listado de Solicitudes
-    <table>
-      <thead>
-        <th>Número de solicitud</th>
-        <th>Fecha</th>
-        <th>Centro</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let solicitud of solicitudes; let i = index">
-          <td>
-            <strong>#{{ i }}</strong>
-          </td>
-          <td>
-            {{ solicitud.fecha | date: 'dd/MM/yyyy' }}
-          </td>
-          <td>
-            {{ solicitud.centro }}
-          </td>
-          <td>
-            {{ solicitud.nombre }}
-          </td>
-          <td>
-            {{ solicitud.apellidos }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <app-lista-solicitudes [solicitudes]="solicitudes" (deleted)="borrarSolicitud($event)"></app-lista-solicitudes>
   </div>
 </div>

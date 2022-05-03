@@ -1,0 +1,33 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <th>Número de solicitud</th>
+    <th>Fecha</th>
+    <th>Centro</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let solicitud of solicitudes; let i = index">
+      <td>
+        <strong>#{{ i }}</strong>
+      </td>
+      <td>
+        {{ solicitud.fecha | date: 'dd/MM/yyyy' }}
+      </td>
+      <td>
+        {{ solicitud.centro }}
+      </td>
+      <td>
+        {{ solicitud.nombre }}
+      </td>
+      <td>
+        {{ solicitud.apellidos }}
+      </td>
+      <td>
+        <div class="buttons">
+          <button class="button is-danger" style="height: auto;" (click)="borrarSolicitud(i)">X</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

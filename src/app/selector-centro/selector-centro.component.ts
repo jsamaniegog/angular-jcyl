@@ -23,12 +23,16 @@ export class SelectorCentroComponent implements OnInit {
 
   centro(event: KeyboardEvent) {
     let target = (event.target as HTMLInputElement)
-    this.centrosFiltrados = [...this.centros].filter(centro => centro.nombre.includes(target.value))
+    this.centrosFiltrados = [...this.centros].filter(centro => centro.nombre.toLocaleLowerCase().includes(target.value.toLocaleLowerCase()))
   }
 
   seleccionarCentro(centro: any) {
     this.centroSeleccionado = centro
     this.selected.emit(centro)
+  }
+
+  isSelected(centro: any) {
+    return this.centroSeleccionado?.nombre === centro.nombre
   }
 
 }

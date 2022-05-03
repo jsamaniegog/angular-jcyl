@@ -1,17 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-centro',
-  template: `<h1><strong>{{centro.nombre}}</strong></h1>`,
+  templateUrl: './centro.component.html',
   styleUrls: ['./centro.component.css']
 })
 
 export class CentroComponent implements OnInit {
   @Input() centro: any;
+  @Input() isSelected: Boolean = false;
+
+  @Output() selected = new EventEmitter();
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  centroSeleccionado(centro: Object) {
+    this.selected.emit(centro);
   }
 
 }
