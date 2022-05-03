@@ -1,3 +1,4 @@
+import { SolicitudesService } from './../solicitudes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,8 +16,8 @@ export class SolicitudComponent implements OnInit {
 
   solicitudes: any;
 
-  constructor() {
-    this.solicitudes = [];
+  constructor(private solicitudesService: SolicitudesService) {
+    this.solicitudes = solicitudesService.getSolicitudes();
   }
 
   ngOnInit(): void {}
