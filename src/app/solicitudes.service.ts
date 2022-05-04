@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,22 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class SolicitudesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getSolicitudes() {
-    return [
-      {
-        fecha: new Date(),
-        nombre: 'Roberto',
-        apellidos: 'Baggio',
-        centro: 'Roma',
-      },
-      {
-        fecha: new Date(),
-        nombre: 'Zinedine',
-        apellidos: 'Zidane',
-        centro: 'Paris',
-      }
-    ]
+    const accessToken = 'o_HLSVqO8914nJSWY89rUO-ud6hs855qggwl2DVIDFQ';
+    return this.httpClient
+      .get(`https://cdn.contentful.com/spaces/bdjfvl4aciuh/environments/master/entries?access_token=${accessToken}`)
+      .toPromise();
+
   }
 }

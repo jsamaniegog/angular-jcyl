@@ -17,7 +17,9 @@ export class SolicitudComponent implements OnInit {
   solicitudes: any;
 
   constructor(private solicitudesService: SolicitudesService) {
-    this.solicitudes = solicitudesService.getSolicitudes();
+    solicitudesService.getSolicitudes().then(
+      (data: any) => this.solicitudes = data.items.map((element: any) => element.fields)
+    );
   }
 
   ngOnInit(): void {}

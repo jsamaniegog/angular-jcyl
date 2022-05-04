@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
@@ -16,6 +17,7 @@ import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes
     ListaSolicitudesComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule
   ],
   providers: [],
