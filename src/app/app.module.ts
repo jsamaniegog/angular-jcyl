@@ -14,13 +14,17 @@ import { ListaCentrosComponent } from './lista-centros/lista-centros.component';
 const routes: Routes = [
   {
     path: '',
-    component: ListaCentrosComponent
-  },
-  {
-    path: 'solicitud',
     component: SolicitudComponent
   },
- ];
+  {
+    path: 'centro/:idCentro',
+    component: CentroComponent
+  },
+  {
+    path: 'centros',
+    component: ListaCentrosComponent
+  },
+];
 
 @NgModule({
   declarations: [

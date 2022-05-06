@@ -1,7 +1,9 @@
 <div class="content rows">
   <div class="p-3 row has-text-primary has-background-light m-4 p-2">
-    <a routerLink="solicitud">Nueva Solicitud</a> |
-    <a routerLink="">Lista de Centros</a>
+    <a routerLink="">Nueva Solicitud</a> |
+    <a [routerLink]="['centro', 1]">Centro 1</a> |
+    <a (click)="navegarAlCentro()">Navegar al Centro 2</a> |
+    <a routerLink="centros">Lista de Centros</a>
   </div>
   <div class="row m-4">
     <router-outlet></router-outlet>

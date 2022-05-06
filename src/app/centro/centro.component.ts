@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-centro',
@@ -13,7 +14,11 @@ export class CentroComponent implements OnInit {
   @Output() selected = new EventEmitter();
 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    route.params.subscribe(
+      params => this.centro = {nombre: params['idCentro']}
+    )
+  }
 
   ngOnInit(): void {
   }
