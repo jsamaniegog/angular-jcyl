@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CentroComponent } from './centro/centro.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
-import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes.component';
 import { ListaCentrosComponent } from './lista-centros/lista-centros.component';
 
 const routes: Routes = [
@@ -28,7 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     HttpClientModule,
