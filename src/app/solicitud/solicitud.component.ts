@@ -14,12 +14,10 @@ export class SolicitudComponent implements OnInit {
     centro: '',
   };
 
-  solicitudes: any;
+  solicitudes$: any;
 
   constructor(private solicitudesService: SolicitudesService) {
-    solicitudesService.getSolicitudes().then(
-      (data: any) => this.solicitudes = data.items.map((element: any) => element.fields)
-    );
+    this.solicitudes$ = solicitudesService.getSolicitudes();
   }
 
   ngOnInit(): void {}
@@ -34,7 +32,9 @@ export class SolicitudComponent implements OnInit {
       return;
     }
 
-    this.solicitudes.push({ ...this.solicitud });
+    this.solicitudes$.then((x: any[]) => {
+      x.push({ ...this.solicitud });
+    });
   }
 
   nombre($event: KeyboardEvent) {
@@ -60,8 +60,8 @@ export class SolicitudComponent implements OnInit {
   }
 
   borrarSolicitud(indexToRemove: number) {
-    this.solicitudes = this.solicitudes.filter(function (value: any, index: number, arr: any) {
-      return index !== indexToRemove;
-    });
+    this.solicitudes$.then((x: any[]) => {
+      x.splice(indexToRemove, 1)
+    })
   }
 }

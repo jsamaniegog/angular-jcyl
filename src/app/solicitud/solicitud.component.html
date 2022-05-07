@@ -62,6 +62,6 @@
   <!-- Tercera columna - Listado -->
   <div class="is-half box">
     Listado de Solicitudes
-    <app-lista-solicitudes [solicitudes]="solicitudes" (deleted)="borrarSolicitud($event)"></app-lista-solicitudes>
+    <app-lista-solicitudes [solicitudes]="solicitudes$" (deleted)="borrarSolicitud($event)"></app-lista-solicitudes>
   </div>
 </div>

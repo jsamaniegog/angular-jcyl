@@ -7,7 +7,7 @@
     <th>Apellidos</th>
   </thead>
   <tbody>
-    <tr *ngFor="let solicitud of solicitudes; let i = index">
+    <tr *ngFor="let solicitud of solicitudes | async; let i = index">
       <td>
         <strong>#{{ i }}</strong>
       </td>
